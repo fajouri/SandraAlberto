@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="favicon.png">
   <style>
     :root{
       --ruby:#7b1e2b;
@@ -92,7 +92,7 @@
       position:absolute; inset:0;
       background:
         linear-gradient(180deg, rgba(0,0,0,.52), rgba(0,0,0,.35)),
-        url("https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=2200&q=80");
+        url(website_background_1920.jpg);
       background-size:cover;
       background-position:center;
       z-index:-2;
@@ -300,30 +300,6 @@
       transform: translateY(-2px);
     }
 
-    /* RSVP */
-    .rsvp{
-      border-radius: calc(var(--radius) + 10px);
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(200,162,77,.22), transparent 60%),
-        radial-gradient(900px 520px at 90% 20%, rgba(123,30,43,.14), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.55));
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: var(--shadow);
-      padding: clamp(22px, 3vw, 34px);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .rsvp .text{ max-width: 70ch; }
-    .rsvp h3{
-      font-family:'Playfair Display', serif;
-      color: var(--ruby);
-      font-size: 1.55rem;
-      margin-bottom: 6px;
-    }
-
     footer{
       padding: 36px 0 46px;
       text-align:center;
@@ -353,6 +329,47 @@
       display:inline-block;
       box-shadow: 0 8px 18px rgba(200,162,77,.25);
     }
+
+    /* Photo row */
+.photoRow{
+  margin: 28px auto 10px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.photoFrame{
+  width: 220px;
+  height: 220px;
+  border-radius: 22px;
+  overflow:hidden;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+  border: 3px solid rgba(255,255,255,.65);
+  background:#fff;
+}
+
+.photoFrame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* leve superposición elegante */
+.photoFrame.overlap{
+  margin-top: 26px;
+}
+
+/* mobile */
+@media (max-width: 560px){
+  .photoFrame{
+    width: 200px;
+    height: 200px;
+  }
+  .photoFrame.overlap{
+    margin-top: 0;
+  }
+}
   </style>
 </head>
 
@@ -372,7 +389,6 @@
       <nav>
         <a href="#celebracion">Celebración</a>
         <a href="#iglesia">Iglesia</a>
-        <a href="#rsvp">Confirmación</a>
       </nav>
 
       <button id="musicBtn" class="btn btnGhost" type="button" aria-label="Música">
@@ -392,20 +408,27 @@
 
       <div class="heroMeta">
         <!-- Si querés, reemplazá "Fecha" por la fecha real -->
-        <div class="chip">📅 <strong>Fecha:</strong> 07/02/2026</div>
+        <div class="chip">📅 <strong>Fecha:</strong> (completar)</div>
         <div class="chip">✨ <strong>Servicio Divino:</strong> 9:30 hs</div>
-        <div class="chip">📍 <strong>Ciudadela, Buenos Aires</strong></div>
+        <div class="chip">📍 <strong>Morón, Buenos Aires</strong></div>
       </div>
 
       <div class="divider" aria-hidden="true"></div>
 
       <p class="lead" style="margin: 18px auto 0; color: rgba(255,255,255,.92);">
+        <div class="photoRow reveal">
+          <div class="photoFrame">
+            <img src="SandraAlberto1.jpeg" alt="Sandra y Alberto">
+          </div>
+          <div class="photoFrame overlap">
+            <img src="SandeaAlberto2.jpeg" alt="Sandra y Alberto">
+          </div>
+        </div>
         Con mucha alegría, los invitamos a acompañarnos en el acto de Bendición por nuestras
         <strong>Bodas de Rubí</strong>.
       </p>
 
       <div class="btnRow">
-        <a class="btn btnPrimary" href="#rsvp">Confirmar presencia</a>
         <a class="btn btnGhost" href="#iglesia">Ver ubicación</a>
       </div>
     </div>
@@ -430,45 +453,25 @@
   <section id="iglesia" style="padding-top: 28px;">
     <div class="wrap">
       <div class="kicker reveal">UBICACIÓN</div>
-      <h2 class="reveal">Iglesia Nueva Apostólica · Ciudadela</h2>
+      <h2 class="reveal">Iglesia Nueva Apostólica · Morón</h2>
 
       <div class="grid">
         <article class="card reveal">
           <h3>⛪ Servicio Divino</h3>
           <p class="muted">
-            <strong>Dirección:</strong> Ingeniero Pereyra 3545, Ciudadela, Buenos Aires<br>
+            <strong>Dirección:</strong> Juez de la Gándara 1053, Morón, Buenos Aires<br>
             <strong>Horario:</strong> 9:30 hs<br>
             <span style="display:inline-block; margin-top:10px;">
               Los esperamos para compartir este momento de bendición y gratitud.
             </span>
           </p>
 
-          <!-- Link Google Maps (ya listo con dirección) -->
-          <a class="miniBtn" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=Ingeniero%20Pereyra%203545%2C%20Ciudadela%2C%20Buenos%20Aires">
-            Ver en Google Maps
-          </a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section id="rsvp">
-    <div class="wrap">
-      <div class="rsvp reveal">
-        <div class="text">
-          <div class="kicker">CONFIRMACIÓN</div>
-          <h3>¿Nos acompañás?</h3>
-          <p class="lead" style="margin-top:10px;">
-            Por favor confirmá tu presencia para ayudarnos con la organización.
-          </p>
-        </div>
-
-        <!-- Reemplazar por tu link de Google Form / Drive -->
-        <a class="btn btnPrimary" href="https://drive.google.com" target="_blank" rel="noopener">
-          Confirmar presencia
+                  <!-- Iglesia Nueva Apostólica Morón -->
+        <a class="miniBtn" target="_blank" rel="noopener"
+          href="https://www.google.com/maps/place/Iglesia+Nueva+Apost%C3%B3lica+Mor%C3%B3n/">
+          Ver en Google Maps
         </a>
+        </article>
       </div>
     </div>
   </section>
@@ -486,7 +489,7 @@
     - El botón inicia/detiene (sin autoplay)
   -->
   <audio id="bgMusic" preload="none">
-    <source src="music.mp3" type="audio/mpeg" />
+    <source src="GraciasALaVida.m4a" type="audio/mpeg" />
   </audio>
 
   <script>
